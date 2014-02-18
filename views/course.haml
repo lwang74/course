@@ -1,0 +1,16 @@
+%form#course_form(action='/change_course' method="POST") 
+  #title
+    #grade_div(style='float:left;width:300px;padding:0px;background-color:')
+      %p(style='margin:0px')
+        选择年级：
+        %select#grade_select(name='grade_select' onChange='grade_changed_in_course()')
+          %option(value='-1') 请选择
+          - @grade.each do |one|
+            %option(value='#{one[:id].to_s}') #{one[:cname]}
+    %input(type='submit' value='提交')
+    <br>
+    #course_div(style='background-color:;position:')
+    #msg_div(style='background-color:yellow;')
+
+%img.spinner(src='/spinner.gif' style='display:none')
+

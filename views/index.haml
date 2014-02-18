@@ -1,0 +1,30 @@
+%form#grade_form(action='/set_course' method="POST") 
+  %input(name='all_stud' type='hidden' value='#{@all_stud}')
+  #title
+    #grade_div(style='float:left;width:300px;padding:0px;background-color:')
+      %p(style='margin:0px')
+        选择年级：
+        %select#grade_select(name='grade_select' onChange='grade_changed(#{@all_stud})')
+          %option(value='-1') 请选择
+          - @grade.each do |one|
+            %option(value='#{one[:id].to_s}') #{one[:cname]}
+    #class_div(style='float:left;width:200px;background-color:')
+      %p(style='margin:0px')
+        选择班级:
+        %select#class_select(name='class_select' onChange='class_changed(#{@all_stud})')
+          %option(value='-1') 请选择
+    #students_div(style='float:left;width:300px;background-color:')
+      %p(style='margin:0px')
+        学生: 
+        %select#student_select(name='student_select1' onChange='student_changed()')
+          %option(value='-1') 请选择
+    %input(type='submit' value='提交')
+    <br>
+    #course_div(style='background-color:;position:')
+    #msg_div(style='background-color:yellow;')
+    %input(type='submit' value='提交')
+
+    %input#tRound(type='hidden' value=@tRound)
+
+%img.spinner(src='/spinner.gif' style='display:none')
+

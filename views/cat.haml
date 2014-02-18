@@ -1,0 +1,16 @@
+%form(action="/cat" method="POST")
+  %p
+    输入科目：
+    %input(name='cat')
+  %p
+    选择年级：
+    %select#grade_select(name='grade_select' onChange='grade_changed()')
+      %option(value='-1') 请选择
+      - @grade.each do |one|
+        %option(value='#{one[0].to_s}') #{one[1]}
+  %br
+  %input(type='submit')
+  %br
+  %br
+  =params
+ 

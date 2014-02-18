@@ -1,0 +1,7 @@
+development:
+  database: Course
+  username: sa
+  # password: naominaomi
+  # host: 192.168.199.128
+  password: naomi_94167
+  host: localhost\sqlexpress

@@ -1,0 +1,6 @@
+%p
+  选择班级:
+  %select#class_select
+    - @class.each do |one|
+      %option #{one}
+

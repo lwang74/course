@@ -1,0 +1,5 @@
+%p 
+  学生: 
+  %select#student_select
+    - @studuents.each do |one|
+      %option(value='#{one}')#{one}

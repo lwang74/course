@@ -1,0 +1,9 @@
+%p(style='margin:0px')
+  学生: 
+  / =params
+  %select#student_select(name='student_select' onChange='student_changed()')
+    %option(value='-1') 请选择
+    - @students.each do |one|
+      - id_str =''
+      - id_str ="(#{one[:sid]})" if one[:sid] and one[:sid]!=''
+      %option(value='#{one[:id]}')#{one[:sname]} #{id_str}

@@ -1,0 +1,35 @@
+%p
+  请选择需要关闭的课程
+  -@course.each do|k, v|
+    %div(id='div_#{k}')
+      %p(style='margin:0px')
+        =v[:round_name]
+        %table(border=1 cellspacing=0 style='margin-left:100px')
+          %tr
+            %th
+              %td 课程名称
+              %td 科目
+              %td 教师
+              / %td 最少人数/定员
+              %td 定员
+              %td 当前已报名人数
+              %td 课程说明
+          - v[:course].each do|one|
+            - disable_it = one[:disable] 
+            - over = one[:curr_count]>=one[:maxn]
+            %tr(style="background-color: #{'gray' if disable_it}; color:#{'white' if disable_it}")
+              %td
+                %input{:checked=>disable_it}(type='checkbox' name='N_#{one[:course_id]}' value='1')
+              %td 
+                #{one[:subject_name]}
+              %td 
+                #{one[:category_name]}
+              %td 
+                #{one[:teacher_name]}
+              %td{:align=>:right}
+                / #{one[:minn]}/#{one[:maxn]}
+                #{one[:maxn]}
+              %td{:align=>:right}
+                #{one[:curr_count]}
+              %td 
+                #{one[:descr]}

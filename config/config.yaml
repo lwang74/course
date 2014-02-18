@@ -1,0 +1,5 @@
+development:
+  database: Course
+  username: sa
+  password: naominaomi
+  host: localhost\sqlexpress

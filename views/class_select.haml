@@ -1,0 +1,7 @@
+%p(style='margin:0px')
+  选择班级: 
+  / = params
+  %select#class_select(name='class_select' onChange='class_changed(#{@all_stud})')
+    %option(value='-1') 请选择
+    - @classes.each do |one|
+      %option(value='#{one[:id]}') #{one[:cname]}

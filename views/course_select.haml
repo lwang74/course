@@ -1,0 +1,36 @@
+#course_div
+  -@course.each do|k, v|
+    %div(id='div_#{k}')
+      %p(style='margin:0px')
+        =v[:round_name]
+        %table(border=1 cellspacing=0 style='margin-left:100px')
+          %tr
+            %th
+              %td 课程名称1
+              %td 科目
+              %td 教师
+              / %td 最少人数/定员
+              %td 定员
+              %td 当前已报名人数
+              %td 课程说明
+          - v[:course].each do|one|
+            - disable_it = one[:disable] 
+            - over = one[:curr_count]>=one[:maxn]
+            %tr(style="background-color: #{'gray' if disable_it}; color:#{'white' if disable_it} ")
+              %td
+                %input{:checked=>one[:selected_cid], :disabled=>(disable_it||over)}(type='radio' id='N_#{k}_#{one[:course_id]}' name='N_#{k}' value='#{one[:course_id]}')
+                %input(id='id_#{one[:selected_cid]}' type='hidden' name='HN_#{k}_#{one[:course_id]}' value='#{(one[:selected_cid])? 1 : 0}')
+              %td
+                %img(src='/pict_man.gif' width='20' style='display:#{'none' if !over}')
+                %label(for='N_#{k}_#{one[:course_id]}') #{one[:subject_name]}
+              %td 
+                %label(for='N_#{k}_#{one[:course_id]}') #{one[:category_name]}
+              %td 
+                %label(for='N_#{k}_#{one[:course_id]}') #{one[:teacher_name]}
+              %td{:align=>:right}
+                / %label(for='N_#{k}_#{one[:course_id]}') #{one[:minn]}/#{one[:maxn]}
+                %label(for='N_#{k}_#{one[:course_id]}') #{one[:maxn]}
+              %td{:align=>:right}
+                %label(for='N_#{k}_#{one[:course_id]}') #{one[:curr_count]}
+              %td 
+                %label(for='N_#{k}_#{one[:course_id]}') #{one[:descr]} 

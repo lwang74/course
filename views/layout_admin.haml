@@ -1,0 +1,25 @@
+!!! 5
+%html
+  %head
+    %meta(charset="utf-8")
+    %title 选课系统
+    %script(src="/right.js")
+    %script(src="/right-dialog-src.js")
+    %script(src="/custom.js") 
+    %script
+      var loc="#{@loc}"
+    %style
+      ul{list-style-type:none;margin:0;padding:0;background-color:#dddddd}
+      li{display:inline;}
+      //a{display:block;width:60px;}
+  %body
+    %img(src='/xiaohui.jpg' width='55' height='40' style='float:left;')
+    %h2
+      %font(color='blue') 天津市八十二中学选课系统
+    %ul
+      / %li
+      /   %a{:href=>"/download"} 下载Excel
+    =yield
+  %h2 
+
+  
