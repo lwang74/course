@@ -18,7 +18,7 @@
             - over = one[:curr_count]>=one[:maxn]
             %tr(style="background-color: #{'gray' if disable_it}; color:#{'white' if disable_it} ")
               %td
-                %input{:checked=>one[:selected_cid], :disabled=>(disable_it||over)}(type='radio' id='N_#{k}_#{one[:course_id]}' name='N_#{k}' value='#{one[:course_id]}')
+                %input{:checked=>one[:selected_cid], :disabled=>(disable_it||over)}(type='radio' id='N_#{k}_#{one[:course_id]}' name='N_#{k}' value='#{one[:course_id]}' rand='#{v[:round_name]}')
                 %input(id='id_#{one[:selected_cid]}' type='hidden' name='HN_#{k}_#{one[:course_id]}' value='#{(one[:selected_cid])? 1 : 0}')
               %td
                 %img(src='/pict_man.gif' width='20' style='display:#{'none' if !over}')

@@ -61,17 +61,19 @@ function checkDup(arr){
   var nameArr = []
   var cntxArr = []
   $$('input').filter('checked').each(function(obj){
-    var name = obj.get('name')
-    if (/^N\_(\d+)$/.test(name)){
-        name = RegExp.$1
-    }
+    // var name = obj.get('name')
+    // if (/^N\_(\d+)$/.test(name)){
+    //     name = RegExp.$1
+    // }
+    var name = obj.get('rand')
     nameArr.push(name)
     cntxArr.push(obj.parent().next().text())
   })
 
   var arr = []
   for (var i=0; i<nameArr.length; i++){
-    arr.push('第'+nameArr[i]+'期 : '+cntxArr[i])
+    // arr.push('第'+nameArr[i]+'期 : '+cntxArr[i])
+    arr.push(nameArr[i]+' : '+cntxArr[i])
   }
 
   if (nameArr.length!='#tRound'.getValue()){ //没有选满期
