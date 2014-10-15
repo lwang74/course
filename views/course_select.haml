@@ -4,15 +4,14 @@
       %p(style='margin:0px')
         =v[:round_name]
         %table(border=1 cellspacing=0 style='margin-left:100px')
-          %tr
-            %th
-              %td 课程名称1
-              %td 科目
-              %td 教师
-              / %td 最少人数/定员
-              %td 定员
-              %td 当前已报名人数
-              %td 课程说明
+          %tr(style="background-color:yellow")
+            %td
+            %td 课程名称1
+            %td 科目
+            %td 教师
+            %td 定员
+            %td 当前已报名人数
+            %td 课程说明
           - v[:course].each do|one|
             - disable_it = one[:disable] 
             - over = one[:curr_count]>=one[:maxn]
